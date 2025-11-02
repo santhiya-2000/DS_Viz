@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import ArrayVisualization from './components/ArrayVisualization';
 import LinkedListVisualization from './components/LinkedListVisualization';
@@ -86,30 +86,28 @@ const dataStructures: Record<string, DataStructure> = {
 
 function App() {
   return (
-    <Router>
-      <div className="app-shell">
-        <header className="header">
-          <div className="container">
-            <div className="brand"><Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>DS Visualizer</Link></div>
-          </div>
-        </header>
+    <div className="app-shell">
+      <header className="header">
+        <div className="container">
+          <div className="brand"><Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>DS Visualizer</Link></div>
+        </div>
+      </header>
 
-        <main className="main">
-          <div className="container">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/array" element={<ArrayVisualization data={dataStructures.array} />} />
-              <Route path="/linkedlist" element={<LinkedListVisualization data={dataStructures.linkedlist} />} />
-              <Route path="/hashmap" element={<HashMapVisualization data={dataStructures.hashmap} />} />
-              <Route path="/heap" element={<HeapVisualization data={dataStructures.heap} />} />
-              <Route path="/btree" element={<BinaryTreeVisualization data={dataStructures.btree} />} />
-              <Route path="/avl" element={<AVLTreeVisualization data={dataStructures.avl} />} />
-              <Route path="/graphs" element={<GraphVisualization data={dataStructures.graphs} />} />
-            </Routes>
-          </div>
-        </main>
-      </div>
-    </Router>
+      <main className="main">
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/array" element={<ArrayVisualization data={dataStructures.array} />} />
+            <Route path="/linkedlist" element={<LinkedListVisualization data={dataStructures.linkedlist} />} />
+            <Route path="/hashmap" element={<HashMapVisualization data={dataStructures.hashmap} />} />
+            <Route path="/heap" element={<HeapVisualization data={dataStructures.heap} />} />
+            <Route path="/btree" element={<BinaryTreeVisualization data={dataStructures.btree} />} />
+            <Route path="/avl" element={<AVLTreeVisualization data={dataStructures.avl} />} />
+            <Route path="/graphs" element={<GraphVisualization data={dataStructures.graphs} />} />
+          </Routes>
+        </div>
+      </main>
+    </div>
   );
 }
 
